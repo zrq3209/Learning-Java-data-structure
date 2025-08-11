@@ -83,4 +83,20 @@ public class SinglyLinkedList {
         }
         current.next = current.next.next;
     }
+
+    public void reverse() {
+        ListNode prev = null;        // 前一个节点
+        ListNode current = head;     // 当前节点
+        ListNode next = null;        // 临时保存下一个节点
+
+        while (current != null) {
+            next = current.next;     // 先保存下一个节点
+            current.next = prev;     // 反转指针方向
+            prev = current;          // 前移 prev
+            current = next;          // 前移 current
+        }
+
+        head = prev; // 最后 prev 就是新的头节点
+    }
+
 }
